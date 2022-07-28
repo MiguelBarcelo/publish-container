@@ -96,5 +96,5 @@ jobs:
     steps:
       - name: Run the image and check the output
         run: |
-          repository=$(echo "${{ env.REGISTRY }}" | awk "{print tolower($0)}")
+          repository=$(echo "${{ env.IMAGE_NAME }}" | awk "{print tolower($0)}")
           docker run ${{ env.REGISTRY }}/$repository:main
