@@ -95,4 +95,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run the image and check the output
-        run: docker run ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
+        repository = $(echo ${{ env.REGISTRY }} | awk '{print tolower($0)}')
+        run: docker run ${{ env.REGISTRY }}/$repository:main
